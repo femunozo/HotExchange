@@ -1,0 +1,7 @@
+{
+  "name": "HotExchange",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

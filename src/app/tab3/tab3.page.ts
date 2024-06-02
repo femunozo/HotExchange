@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -8,13 +8,17 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page implements OnInit {
 
-  constructor(private router:Router) {}
-
-  navegarALogin() {
-    this.router.navigate(['/login'])
-  }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  navegarALogin() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        limpiarCampos: true
+      }
+    };
+    this.router.navigate(['/login'], navigationExtras)
+  }
 }

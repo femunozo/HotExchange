@@ -8,12 +8,12 @@
 
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
-      <ion-label position="stacked">Usuario</ion-label>
-      <ion-input required type="text"></ion-input>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input required type="password"></ion-input>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
     <br>
     <br>
@@ -21,7 +21,7 @@
   </ion-list>
 
   <div>
-    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Ingresar</ion-button>
+    <ion-button expand="block" fill="solid" (click)="login()">Iniciar sesión</ion-button>
   </div>
 
   <div>

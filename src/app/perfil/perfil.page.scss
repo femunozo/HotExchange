@@ -1,0 +1,45 @@
+
+.perfil-container {
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.perfil-header, .perfil-footer {
+    text-align: center;
+}
+
+.perfil-usuario {
+    text-align: left;
+    width: 100%;
+}
+
+.informacion-adicional form {
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+}
+
+input, select {
+    padding: 8px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    text-align: left;
+}

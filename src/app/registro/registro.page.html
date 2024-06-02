@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hot Exchange
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-header">
+    <h1>Crea tu cuenta aquí</h1>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="stacked">Ingrese su nombre de usuario:</ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Ingrese su Password:</ion-label>
+      <ion-input required type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Ingrese su Password nuevamente:</ion-label>
+      <ion-input required type="password"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <br>
+  </ion-list>
+
+  <div>
+    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Crear cuenta</ion-button>
+  </div>
+
+  <div>
+    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Volver a la página anterior</ion-button>
+  </div>
+
+</ion-content>

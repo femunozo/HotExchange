@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +9,17 @@ import { Router } from '@angular/router';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private alertController: AlertController) {}
+
+  async mostrarAlerta() {
+    const alert = await this.alertController.create({
+      header: 'Ocurrió un error',
+      message: 'nombre/password ya existe, intente nuevamente.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
   navegarALogin() {
     this.router.navigate(['/login']);

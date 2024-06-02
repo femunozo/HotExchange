@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
 
 
   login() {
-    if (this.usuario.trim() === 'felipe' && this.password.trim() === '1234') {
+    if (this.usuario.trim() === '' && this.password.trim() === '') {
       let navigationExtras = {
         state: {
           usuarioEnviado:   this.usuario,

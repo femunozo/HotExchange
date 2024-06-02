@@ -10,6 +10,10 @@ export class Tab3Page implements OnInit {
 
   constructor(private router:Router) { }
 
+  navegarAPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
   ngOnInit() {
   }
 
@@ -22,3 +26,6 @@ export class Tab3Page implements OnInit {
     this.router.navigate(['/login'], navigationExtras)
   }
 }
+
+
+

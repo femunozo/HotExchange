@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -30,17 +30,20 @@ export class LoginPage implements OnInit {
 
   login() {
     if (this.usuario.trim() === 'felipe' && this.password.trim() === '1234') {
-      let navigationExtras: NavigationExtras = {
+      let navigationExtras = {
         state: {
           usuarioEnviado:   this.usuario,
           passwordEnviado:  this.password
         }
-      }
+      };
       this.router.navigate(['../tabs/tab1'], navigationExtras);
-    }
-    else{
+    } else {
       this.presentAlert('usuario/password incorrecta');
     }
+  }
+
+  navegarARegistro() {
+    this.router.navigate(['/registro']);
   }
 
   async presentAlert(message: string) {
@@ -52,5 +55,4 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
-
 }

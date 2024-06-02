@@ -10,8 +10,8 @@ export class RegistroPage implements OnInit {
 
   constructor(private router: Router) {}
 
-  navegarATabs() {
-    this.router.navigate(['/tabs']);
+  navegarALogin() {
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

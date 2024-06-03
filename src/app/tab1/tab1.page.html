@@ -6,17 +6,18 @@
   </header>
 
   <div class="encabezado">
-    <p>Indica la cantidad que tienes y tu divisa:</p>
+    <p>A continuación, digita la cantidad que tienes y selecciona tu divisa:</p>
   </div>
+  <br>
 
   <div class="buttons">
     <div class="container">
       <div class="form-group">
         <label for="cantidad"></label>
-        <br>
         <input type="number" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()">
         <label for="divisa1"></label>
         <select id="divisa1" [(ngModel)]="divisa1">
+          <option value="">Seleccione aquí</option>
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>
@@ -28,12 +29,10 @@
     </div>
   </div>
   <br>
-  <br>
 
   <div class="encabezado">
-    <p>Indica la divisa por la que quieres cambiar:</p>
+    <p>Seleccione la divisa por la que quieres cambiar:</p>
   </div>
-  <br>
   <br>
 
   <div class="buttons">
@@ -41,6 +40,7 @@
       <div class="form-group">
         <label for="divisa2"></label>
         <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
+          <option value="">Seleccione aquí</option>
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>
@@ -51,12 +51,15 @@
       </div>
     </div>
   </div>
-  <br>
 
   <div class="resultado">
     <p>Total: {{total}}</p>
   </div>
   <br>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="resetForm()">Limpiar campos</ion-button>
+  </div>
 
   <div class="button">  
     <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>

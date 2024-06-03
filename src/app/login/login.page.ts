@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -26,7 +26,14 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/tabs']);
   }
 
-
+  navegarAPerfil() {
+    let NavigationExtras: NavigationExtras = {
+      state:{
+        usuarioEnviado: this.usuario
+      }
+    }
+    this.router.navigate(['/perfil'], NavigationExtras);
+  }
 
   login() {
     if (this.usuario.trim() === '' && this.password.trim() === '') {
@@ -56,3 +63,7 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 }
+
+
+
+

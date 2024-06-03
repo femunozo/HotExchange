@@ -1,22 +1,22 @@
 <ion-content class="ion-padding">
   <header class="perfil-usuario">
     <br>
-    <h4>Usuario: Felipe</h4>
+    <h4>Usuario: felipe</h4>
     <br>
   </header>
 
   <div class="encabezado">
-    <p>Indica tu divisa y la cantidad que tienes:</p>
+    <p>Indica la cantidad que tienes y tu divisa:</p>
   </div>
-  <br>
-  <br>
 
   <div class="buttons">
-    <button type="button">Cantidad</button>
     <div class="container">
       <div class="form-group">
-        <label for="divisa"></label>
-        <select id="divisa">
+        <label for="cantidad"></label>
+        <br>
+        <input type="number" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()">
+        <label for="divisa1"></label>
+        <select id="divisa1" [(ngModel)]="divisa1">
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>
@@ -31,17 +31,16 @@
   <br>
 
   <div class="encabezado">
-    <p>Indica la divisa que a la que quieres cambiar</p>
+    <p>Indica la divisa por la que quieres cambiar:</p>
   </div>
   <br>
   <br>
 
   <div class="buttons">
-    <button type="button">Cantidad</button>
     <div class="container">
       <div class="form-group">
-        <label for="divisa"></label>
-        <select id="divisa">
+        <label for="divisa2"></label>
+        <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>
@@ -52,13 +51,18 @@
       </div>
     </div>
   </div>
-  <br><br><br><br><br>
+  <br>
+
+  <div class="resultado">
+    <p>Total: {{total}}</p>
+  </div>
+  <br>
+
   <div class="button">  
     <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
   </div>
 
   <div class="button">  
-    <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir al historial</ion-button>
+    <ion-button expand="block" fill="solid" (click)="mostrarAlerta()">Ir al historial</ion-button>
   </div>
 </ion-content>
-

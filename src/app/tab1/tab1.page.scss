@@ -7,6 +7,11 @@
     width: 100%;
 }
 
+.resultado {
+    text-align: center;
+    width: 100%;
+}
+
 .bottom {
     position: fixed;
     bottom: 0;
@@ -15,7 +20,7 @@
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 button {

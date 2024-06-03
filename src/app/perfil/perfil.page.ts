@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -8,7 +8,15 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
 
-  constructor(private router: Router) { }
+  usuarioRecibido:  string ="";
+
+  constructor(private router: Router, private activateroute:ActivatedRoute) {
+    this.activateroute.queryParams.subscribe (params => {
+      if(this.router.getCurrentNavigation()?.extras?.state){
+        this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnviado'];
+      }
+    })
+   }
 
   ngOnInit() {
   }

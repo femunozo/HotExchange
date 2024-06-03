@@ -14,7 +14,9 @@ export class RegistroPage implements OnInit {
   password: string = "";
   repitepass: string = "";
 
-  constructor(private router: Router, private alertController: AlertController, private http: HttpClient) {}
+  constructor(private router: Router, private alertController: AlertController, private http: HttpClient) {
+    this.validatePasswordMatch = this.validatePasswordMatch.bind(this);
+  }
 
   async mostrarAlerta(message: string = 'nombre/password ya existe, intente nuevamente.') {
     const alert = await this.alertController.create({
@@ -33,13 +35,26 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
+  validatePasswordMatch() {
+    const passwordMismatchError = this.password !== this.repitepass ? { 'passwordMismatch': true } : null;
+    const repitepassInput = (document.querySelector('[name="repitepass"]') as any).ngModel;
+    if (repitepassInput && repitepassInput.control) {
+      repitepassInput.control.setErrors(passwordMismatchError);
+    }
+  }
+
   crearCuenta(form: any) {
-    if (form.valid) {
+    if (this.password !== this.repitepass) {
+      this.mostrarAlerta('Las contraseñas no coinciden. Por favor, revisa y vuelve a intentarlo.');
+      return;
+    }
+  
+    if (form.valid && !form.controls.repitepass.errors?.['passwordMismatch']) {
       const usuarioData = {
         usuario: this.usuario,
         password: this.password
       };
-
+  
       this.http.post('https://tu-api.com/crear-cuenta', usuarioData).subscribe(
         response => {
           console.log('Cuenta creada exitosamente:', response);
@@ -47,7 +62,7 @@ export class RegistroPage implements OnInit {
         },
         error => {
           console.error('Error al crear la cuenta:', error);
-          this.mostrarAlerta('No se pudo crear la cuenta. Intente nuevamente.');
+          this.mostrarAlerta('Usuario/password ya están en uso, intente nuevamente.');
         }
       );
     } else {

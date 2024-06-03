@@ -10,12 +10,21 @@ ion-header {
     }
 }
 
-.login-header {
+.perfil-usuario {
     text-align: center;
+    width: 100%;
 }
 
-.bottom {
-    position: fixed;
-    bottom: 0;
-    text-align: left;
+.textos {
+    text-align: center;
+    margin: 0;
+}
+
+.textos p {
+    text-align: center;
+    margin: 0;
+}
+
+.button {
+    text-align: center;
 }

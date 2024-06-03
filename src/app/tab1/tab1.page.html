@@ -1,66 +1,64 @@
 <ion-content class="ion-padding">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-  <ion-content class="ion-padding">
-    <div class="encabezado">
-      <p>Indica tu divisa y la cantidad que tienes:</p>
-    </div>
-
-    <div class="buttons">
-      <div class="container">
-        <div class="form-group">
-          <label for="divisa"></label>
-          <select id="divisa">
-            <option>Dólar</option>
-            <option>Euro</option>
-            <option>Yen</option>
-            <option>Peso chileno</option>
-            <option>Soles</option>
-            <option>Yuan</option>
-          </select>
-        </div>
-      </div>
-      <button type="button">Cantidad</button>
-    </div>
-
-    <div class="encabezado">
-      <br>
-      <br>
-      <br>
-      <p>Indica la divisa que a la que quieres cambiar</p>
-    </div>
-
-    <div class="buttons">
-      <div class="container">
-        <div class="form-group">
-          <label for="divisa"></label>
-          <select id="divisa">
-            <option>Dólar</option>
-            <option>Euro</option>
-            <option>Yen</option>
-            <option>Peso chileno</option>
-            <option>Soles</option>
-            <option>Yuan</option>
-          </select>
-        </div>
-      </div>
-      <button type="button">Cantidad</button>
-    </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    
-
-  <div>
+  <header class="perfil-usuario">
     <br>
+    <h4>Usuario: Felipe</h4>
     <br>
+  </header>
+
+  <div class="encabezado">
+    <p>Indica tu divisa y la cantidad que tienes:</p>
+  </div>
+  <br>
+  <br>
+
+  <div class="buttons">
+    <button type="button">Cantidad</button>
+    <div class="container">
+      <div class="form-group">
+        <label for="divisa"></label>
+        <select id="divisa">
+          <option>Dólar</option>
+          <option>Euro</option>
+          <option>Yen</option>
+          <option>Peso chileno</option>
+          <option>Soles</option>
+          <option>Yuan</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="encabezado">
+    <p>Indica la divisa que a la que quieres cambiar</p>
+  </div>
+  <br>
+  <br>
+
+  <div class="buttons">
+    <button type="button">Cantidad</button>
+    <div class="container">
+      <div class="form-group">
+        <label for="divisa"></label>
+        <select id="divisa">
+          <option>Dólar</option>
+          <option>Euro</option>
+          <option>Yen</option>
+          <option>Peso chileno</option>
+          <option>Soles</option>
+          <option>Yuan</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br>
+  <div class="button">  
     <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
   </div>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir al historial</ion-button>
+  </div>
 </ion-content>
+

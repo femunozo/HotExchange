@@ -1,18 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hot Exchange
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <div class="perfil-container">
   <header class="perfil-header">
-    <h1>Hot Exchange</h1>
-    <br>
-    <p>Bienvenido!</p>
+    <h4>Información adicional</h4>
     <br>
   </header>
 
   <header class="perfil-usuario">
-    <p>Usuario: Felipe</p>
-    <br>
-  </header>
-
-  <header class="perfil-header">
-    <h4>Información adicional</h4>
+    <h5>Usuario: Felipe</h5>
     <br>
   </header>
 
@@ -43,18 +44,20 @@
 
       <div class="buttons">
         <button type="reset">Limpiar</button>
-        <button type="button">Mostrar</button>
+        <button type="submit">Guardar</button>
       </div>
+      <br>
     </form>
   </section>
   <div>
-    <br>
     <ion-button expand="block" fill="solid" (click)="navegarATab1()">Volver a Divisas</ion-button>
   </div>
-    <footer class="bottom">
-    <p>App desarrollada por F. Muñoz</p>
-  </footer>
 </div>
 
-
-
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      App desarrollada por F. Muñoz
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

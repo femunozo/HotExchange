@@ -16,3 +16,18 @@
     font-size: 0.7em;
     vertical-align: super;
 }
+
+ion-footer {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0);
+
+        ion-title {
+            text-align: left;
+            font-size: 15px;
+            line-height: 0.5;
+        }
+    }
+}

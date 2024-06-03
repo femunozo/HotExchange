@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registro',
@@ -9,12 +10,16 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private router: Router, private alertController: AlertController) {}
+  usuario: string = "";
+  password: string = "";
+  repitepass: string = "";
 
-  async mostrarAlerta() {
+  constructor(private router: Router, private alertController: AlertController, private http: HttpClient) {}
+
+  async mostrarAlerta(message: string = 'nombre/password ya existe, intente nuevamente.') {
     const alert = await this.alertController.create({
       header: 'Ocurrió un error',
-      message: 'nombre/password ya existe, intente nuevamente.',
+      message: message,
       buttons: ['OK']
     });
 
@@ -28,4 +33,25 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
+  crearCuenta(form: any) {
+    if (form.valid) {
+      const usuarioData = {
+        usuario: this.usuario,
+        password: this.password
+      };
+
+      this.http.post('https://tu-api.com/crear-cuenta', usuarioData).subscribe(
+        response => {
+          console.log('Cuenta creada exitosamente:', response);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.error('Error al crear la cuenta:', error);
+          this.mostrarAlerta('No se pudo crear la cuenta. Intente nuevamente.');
+        }
+      );
+    } else {
+      this.mostrarAlerta('Formulario inválido. Por favor, revise los campos.');
+    }
+  }
 }

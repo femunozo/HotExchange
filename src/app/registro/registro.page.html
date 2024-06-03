@@ -14,30 +14,51 @@
     <br>
   </div>
 
-  <ion-list lines="full" class="ion-no-margin ion-no-padding">
-    <ion-item>
-      <ion-label position="stacked">Ingrese su nombre de usuario:</ion-label>
-      <ion-input required type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Ingrese su Password:</ion-label>
-      <ion-input required type="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Ingrese su Password nuevamente:</ion-label>
-      <ion-input required type="password"></ion-input>
-    </ion-item>
-    <br>
-    <br>
-    <br>
-  </ion-list>
+  <form #registroForm="ngForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Ingrese su nombre de usuario:</ion-label>
+        <ion-input
+          required
+          type="text"
+          [(ngModel)]="usuario"
+          name="usuario"
+          minlength="3"
+          maxlength="8"
+          pattern="[a-zA-Z0-9]*"
+          #usuarioInput="ngModel">
+        </ion-input>
+        <div *ngIf="usuarioInput.invalid && (usuarioInput.dirty || usuarioInput.touched)" class="error-messages">
+          <p *ngIf="usuarioInput.errors?.['minlength']">El nombre de usuario debe tener al menos 3 caracteres.</p>
+          <p *ngIf="usuarioInput.errors?.['maxlength']">El nombre de usuario no puede tener más de 8 caracteres.</p>
+          <p *ngIf="usuarioInput.errors?.['pattern']">El nombre de usuario solo puede contener caracteres alfanuméricos.</p>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Ingrese su Password:</ion-label>
+        <ion-input required type="password" [(ngModel)]="password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Ingrese su Password nuevamente:</ion-label>
+        <ion-input required type="password" [(ngModel)]="repitepass" name="repitepass"></ion-input>
+      </ion-item>
+      <br>
+      <br>
+      <br>
+    </ion-list>
 
-  <div>
-    <ion-button expand="block" fill="solid" (click)="mostrarAlerta()">Crear cuenta</ion-button>
-  </div>
+    <div>
+      <ion-button 
+        expand="block" 
+        fill="solid" 
+        (click)="crearCuenta(registroForm)" 
+        [disabled]="!registroForm.valid">
+        Crear cuenta
+      </ion-button>
+    </div>
 
-  <div>
-    <ion-button expand="block" fill="solid" (click)="navegarALogin()">Volver a la página anterior</ion-button>
-  </div>
-
+    <div>
+      <ion-button expand="block" fill="solid" (click)="navegarALogin()">Volver a la página anterior</ion-button>
+    </div>
+  </form>
 </ion-content>

@@ -18,27 +18,27 @@
   </header>
 
   <section class="informacion-adicional">
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="Ingrese su nombre aquí">
+      <input type="text" id="nombre" placeholder="Ingrese su nombre aquí" [(ngModel)]="nombre" name="nombre">
       <br>
 
       <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" placeholder="Ingrese su apellido aquí">
+      <input type="text" id="apellido" placeholder="Ingrese su apellido aquí" [(ngModel)]="apellido" name="apellido">
       <br>
 
       <label for="inversor">Nivel de inversor</label>
-      <select id="inversor">
-        <option>Seleccione nivel</option>
-        <option>Inicial (cada 3 días)</option>
-        <option>Medio (cada 5 días)</option>
-        <option>Avanzado (cada 7 días)</option>
-        <option>Broker (cada 10 días)</option>
+      <select id="inversor" [(ngModel)]="nivelInversor" name="nivelInversor">
+        <option value="Seleccione nivel">Seleccione nivel</option>
+        <option value="Inicial">Inicial (cada 3 días)</option>
+        <option value="Medio">Medio (cada 5 días)</option>
+        <option value="Avanzado">Avanzado (cada 7 días)</option>
+        <option value="Broker">Broker (cada 10 días)</option>
       </select>
       <br>
 
       <label for="fecha-nacimiento">Fecha Nacimiento</label>
-      <input type="date" id="fecha-nacimiento">
+      <input type="date" id="fecha-nacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
       <br>
 
       <div class="buttons">

@@ -8,6 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
 
+  nombre:  string ="";
+  apellido:  string ="";
+  nivelInversor:  string ="";
+  fechaNacimiento:  string ="";
   usuarioRecibido:  string ="";
 
   constructor(private router: Router, private activateroute:ActivatedRoute) {
@@ -18,7 +22,16 @@ export class PerfilPage implements OnInit {
     })
    }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  
+  onSubmit() {
+    console.log('Formulario guardado');
+    console.log('Nombre, this.nombre');
+    console.log('Apellido, this.apellido');
+    console.log('Nivel de inversor, this.nivelInversor');
+    console.log('Fecha de nacimiento, this.fechaNacimiento');
+
   }
 
   navegarATab1() {

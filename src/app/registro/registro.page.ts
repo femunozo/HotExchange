@@ -18,7 +18,7 @@ export class RegistroPage implements OnInit {
     this.validatePasswordMatch = this.validatePasswordMatch.bind(this);
   }
 
-  async mostrarAlerta(message: string = 'nombre/password ya existe, intente nuevamente.') {
+  async mostrarAlerta(message: string = 'Nombre/password ya existe, intente nuevamente.') {
     const alert = await this.alertController.create({
       header: 'Ocurrió un error',
       message: message,

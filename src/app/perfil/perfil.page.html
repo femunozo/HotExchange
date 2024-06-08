@@ -13,12 +13,12 @@
   </header>
 
   <header class="perfil-usuario">
-    <h5>Usuario: felipe</h5>
+    <h5>Usuario: {{nombre}}</h5>
     <br>
   </header>
 
   <section class="informacion-adicional">
-    <form (ngSubmit)="onSubmit()">
+    <form>
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" placeholder="Ingrese su nombre aquí" [(ngModel)]="nombre" name="nombre">
 
@@ -28,7 +28,7 @@
       <label for="inversor">Nivel de inversor</label>
       <select id="inversor" [(ngModel)]="nivelInversor" name="nivelInversor">
         <option value="" disabled></option>
-        <option value="Seleccione nivel">Seleccione nivel</option>
+        <option value="Seleccione nivel" disabled>Seleccione nivel</option>
         <option value="Inicial">Inicial (cada 3 días)</option>
         <option value="Medio">Medio (cada 5 días)</option>
         <option value="Avanzado">Avanzado (cada 7 días)</option>
@@ -40,14 +40,13 @@
       <br>
 
       <div class="buttons">
-        <button type="reset">Limpiar</button>
-        <button type="submit">Guardar</button>
+        <ion-button expand="full" fill="solid" (click)="limpiarDatos()">Limpiar</ion-button>
+        <ion-button expand="full" fill="solid" (click)="guardarDatos()">Guardar</ion-button>
       </div>
-      <br>
     </form>
   </section>
   <div>
-    <ion-button expand="block" fill="solid" (click)="navegarATab1()">Volver a Divisas</ion-button>
+    <ion-button expand="full" fill="solid" (click)="navegarATab1()">Volver a Divisas</ion-button>
   </div>
 </div>
 

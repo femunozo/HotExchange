@@ -16,7 +16,7 @@
         <input type="number" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()">
         <label for="divisa1"></label>
         <select id="divisa1" [(ngModel)]="divisa1">
-          <option value="">Seleccione aquí</option>
+          <option value="" disabled>Seleccione aquí</option>
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>
@@ -38,7 +38,7 @@
       <div class="form-group">
         <label for="divisa2"></label>
         <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
-          <option value="">Seleccione aquí</option>
+          <option value="" disabled>Seleccione aquí</option>
           <option>Dólar</option>
           <option>Euro</option>
           <option>Yen</option>

@@ -31,7 +31,7 @@ export class Tab1Page implements OnInit {
   async mostrarAlerta() {
     const alert = await this.alertController.create({
       header: 'Historial de transacciones: ',
-      message: 'Aun no has hecho transacciones.',
+      message: 'Aún no has hecho transacciones.',
       buttons: ['OK']
     });
 

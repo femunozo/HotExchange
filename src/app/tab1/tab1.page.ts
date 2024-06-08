@@ -47,6 +47,10 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['/tabs/tab2']);
   }
 
+  irAlHistorial() {
+    this.router.navigate(['/historial']);
+  }
+
 convertir() {
   const tasa = this.tasasConversion[this.divisa1][this.divisa2];
   if (tasa && this.cantidad01 != null) {

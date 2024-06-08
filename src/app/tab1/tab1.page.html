@@ -1,12 +1,12 @@
 <ion-content class="ion-padding">
   <header class="perfil-usuario">
     <br>
-    <h4>Usuario: felipe</h4>
+    <h4>Usuario: {{nombre}}</h4>
     <br>
   </header>
 
   <div class="encabezado">
-    <p>A continuación, digita la cantidad que tienes y selecciona tu divisa:</p>
+    <p>A continuación, digite la cantidad de dinero que tiene y seleccione su Divisa:</p>
   </div>
 
   <div class="buttons">
@@ -30,7 +30,7 @@
   <br>
 
   <div class="encabezado">
-    <p>Seleccione la divisa por la que quieres cambiar:</p>
+    <p>Seleccione la divisa por la que quiere cambiar:</p>
   </div>
 
   <div class="buttons">
@@ -56,11 +56,11 @@
   <br>
 
   <div class="button">  
-    <ion-button expand="block" fill="solid" (click)="resetForm()">Limpiar campos</ion-button>
+    <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
   </div>
 
   <div class="button">  
-    <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
+    <ion-button expand="block" fill="solid" (click)="resetForm()">Limpiar campos</ion-button>
   </div>
 
   <div class="button">  

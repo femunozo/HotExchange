@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedDataService } from '../shared-data.service';
 
 @Component({
   selector: 'app-perfil',
@@ -15,7 +16,7 @@ export class PerfilPage implements OnInit, OnDestroy {
   usuarioRecibido:  string = "";
   datosGuardados:   boolean = false;
 
-  constructor(private router: Router, private activateroute:ActivatedRoute) {
+  constructor(private router: Router, private activateroute:ActivatedRoute, private sharedData: SharedDataService) {
     this.activateroute.queryParams.subscribe (params => {
       if (this.router.getCurrentNavigation()?.extras?.state) {
         this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnviado'];
@@ -38,6 +39,7 @@ export class PerfilPage implements OnInit, OnDestroy {
     this.apellido = localStorage.getItem('apellido') || "";
     this.nivelInversor = localStorage.getItem('nivelInversor') || "";
     this.fechaNacimiento = localStorage.getItem('fechaNacimiento') || "";
+    this.sharedData.setNombre(this.nombre);
   }
 
   guardarDatos() {
@@ -45,6 +47,7 @@ export class PerfilPage implements OnInit, OnDestroy {
     localStorage.setItem('apellido', this.apellido);
     localStorage.setItem('nivelInversor', this.nivelInversor);
     localStorage.setItem('fechaNacimiento', this.fechaNacimiento);
+    this.sharedData.setNombre(this.nombre);
     this.datosGuardados = true;
 
     console.log('Formulario guardado');
@@ -60,6 +63,7 @@ export class PerfilPage implements OnInit, OnDestroy {
     localStorage.removeItem('apellido');
     localStorage.removeItem('nivelInversor');
     localStorage.removeItem('fechaNacimiento');
+    this.sharedData.setNombre('');
     this.datosGuardados = false;
   }
 

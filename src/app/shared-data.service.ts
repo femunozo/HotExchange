@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedDataService {
   private cantidad01Subject = new BehaviorSubject<number | null>(0);
   private totalSubject = new BehaviorSubject<number>(0);
+  private nombreSubject = new BehaviorSubject<string>(localStorage.getItem('nombre') || '');
 
   constructor() { }
 
@@ -26,9 +27,19 @@ export class SharedDataService {
     return this.totalSubject.asObservable();
   }
 
+  setNombre(value: string) {
+    this.nombreSubject.next(value);
+    localStorage.setItem('nombre', value);
+  }
+
+  getNombre() {
+    return this.nombreSubject.asObservable();
+  }
+
   reset() {
     this.cantidad01Subject.next(0);
     this.totalSubject.next(0);
+    this.nombreSubject.next('');
+    localStorage.removeItem('nombre');
   }
 }
-

@@ -10,10 +10,11 @@ import { SharedDataService } from '../shared-data.service';
 })
 export class Tab1Page implements OnInit {
 
+  nombre:     string = "";
   cantidad01: number | null = 0;
-  divisa1: string = '';
-  divisa2: string = '';
-  total: number = 0;
+  divisa1:    string = '';
+  divisa2:    string = '';
+  total:      number = 0;
 
   tasasConversion: { [key: string]: { [key: string]: number } } = {
     'Dólar': { 'Euro': 0.85, 'Yen': 110, 'Peso chileno': 750, 'Soles': 3.7, 'Yuan': 6.5 },
@@ -26,7 +27,9 @@ export class Tab1Page implements OnInit {
 
   constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sharedData.getNombre().subscribe(nombre => this.nombre = nombre);
+  }
 
   async mostrarAlerta() {
     const alert = await this.alertController.create({
@@ -66,9 +69,5 @@ convertir() {
     this.divisa1 = '';
     this.divisa2 = '';
     this.total = 0;
-    this.sharedData.reset();
-    this.sharedData.setCantidad01(this.cantidad01);
-    this.sharedData.setTotal(this.total);
-
   }
 }

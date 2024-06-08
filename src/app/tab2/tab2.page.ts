@@ -10,12 +10,14 @@ import { SharedDataService } from '../shared-data.service';
 })
 export class Tab2Page implements OnInit {
 
+  nombre:     string = "";
   cantidad01: number | null = 0;
-  total: number = 0;
+  total:      number = 0;
 
   constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
 
   ngOnInit() {
+    this.sharedData.getNombre().subscribe(nombre => this.nombre = nombre);
     this.sharedData.getCantidad01().subscribe(value => {
       this.cantidad01 = value;
     });

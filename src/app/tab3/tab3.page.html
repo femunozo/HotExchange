@@ -1,38 +1,31 @@
 <ion-content class="ion-padding">
   <div class="encabezado">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1>HXH <span class="small-reg">&reg;</span></h1>
-    <p>versión 4.1.1</p>
-    <br>
-    <br>
-    <p>Somos una empresa de intercambio</p>
-    <p>de Divisas internacionales</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <p>versión 2.1.1</p>
+    <br><br><br><br>
+    <p>"Somos una empresa de intercambio</p>
+    <p>de Divisas internacionales,</p>
+    <p>próximamente sumaremos</p> 
+    <p>Cryptomonedas, Acciones y</p>
+    <p>Bonos."</p>
+    <br><br><br><br>
   </div>
 
-  
-
-  <div class="bottom">
-    <p>email: fe.munozo&#64;duocuc.cl</p>
-    <p>contact: +56942291446</p>
+  <div class="button">
+    <ion-button expand="block" fill="solid" (click)="navegarAPerfil()">Completar perfil</ion-button>
   </div>
 
-  <div>
+  <div class="button">
     <ion-button expand="block" fill="solid" (click)="navegarALogin()">Cerrar sesión</ion-button>
   </div>
 
 </ion-content>
 
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <p>email: fe.munozo&#64;duocuc.cl</p>
+      <p>contact: +56942291446</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

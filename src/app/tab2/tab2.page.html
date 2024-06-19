@@ -1,39 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>tab2</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding">
-  <div class="login-header">
+  <div class="textos">
+    <header class="perfil-usuario">
+      <br>
+      <h4>Usuario: {{nombre}}</h4>
+      <br>
+    </header>
+  
+    <br><br><br><br>
+    <br><br><br><br><br>
+    <p>Quiere cambiar sus ${{cantidad01}}</p>
     <br>
-    <br>
-    <br>
-    <br>
-    <p>Quieres cambiar tus $80.000 pesos</p>
-    <br>
-    <br>
-    <br>
-    <p>Por la cantidad de $80 dólares?</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <p>Por la cantidad de ${{total}}?</p>
+    <br><br><br><br>
+    <br><br><br>
   </div>
 
 
-  <div>
-    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Cambiar</ion-button>
+  <div class="button">
+    <ion-button expand="block" fill="solid" (click)="mostrarAlerta()">Comprar/vender</ion-button>
   </div>
   
-  <div>
-    <ion-button expand="block" fill="solid" (click)="navegarATabs()">volver a simular Divisas</ion-button>
+  <div class="button">
+    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Volver a simular Divisas</ion-button>
   </div>
+
 </ion-content>

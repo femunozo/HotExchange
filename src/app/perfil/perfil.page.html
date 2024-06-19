@@ -1,55 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hot Exchange
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <div class="perfil-container">
   <header class="perfil-header">
-    <h1>Hot Exchange</h1>
-    <br>
-    <p>Bienvenido!</p>
+    <h4>Información adicional</h4>
     <br>
   </header>
 
   <header class="perfil-usuario">
-    <p>Usuario: Felipe</p>
-    <br>
-  </header>
-
-  <header class="perfil-header">
-    <h4>Información adicional</h4>
+    <h5>Usuario: {{nombre}}</h5>
     <br>
   </header>
 
   <section class="informacion-adicional">
     <form>
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="Ingrese su nombre aquí">
-      <br>
+      <input type="text" id="nombre" placeholder="Ingrese su nombre aquí" [(ngModel)]="nombre" name="nombre">
 
       <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" placeholder="Ingrese su apellido aquí">
-      <br>
+      <input type="text" id="apellido" placeholder="Ingrese su apellido aquí" [(ngModel)]="apellido" name="apellido">
 
-      <label for="educacion">Seleccione Nivel</label>
-      <select id="educacion">
-        <option>Seleccione nivel</option>
-        <option>Primaria</option>
-        <option>Secundaria</option>
-        <option>Universitaria</option>
-        <option>Maestría</option>
-        <option>Doctorado</option>
+      <label for="inversor">Nivel de inversor</label>
+      <select id="inversor" [(ngModel)]="nivelInversor" name="nivelInversor">
+        <option value="" disabled></option>
+        <option value="Seleccione nivel" disabled>Seleccione nivel</option>
+        <option value="Inicial">Inicial (cada 3 días)</option>
+        <option value="Medio">Medio (cada 5 días)</option>
+        <option value="Avanzado">Avanzado (cada 7 días)</option>
+        <option value="Broker">Broker (cada 10 días)</option>
       </select>
-      <br>
 
       <label for="fecha-nacimiento">Fecha Nacimiento</label>
-      <input type="date" id="fecha-nacimiento">
-      <br>
+      <input type="date" id="fecha-nacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
       <br>
 
       <div class="buttons">
-        <button type="reset">Limpiar</button>
-        <button type="button">Mostrar</button>
+        <ion-button expand="full" fill="solid" (click)="limpiarDatos()">Limpiar</ion-button>
+        <ion-button expand="full" fill="solid" (click)="guardarDatos()">Guardar</ion-button>
       </div>
     </form>
   </section>
-
-  <footer class="bottom">
-    <p>App desarrollada por F. Muñoz</p>
-  </footer>
+  <div>
+    <ion-button expand="full" fill="solid" (click)="navegarATab1()">Volver a Divisas</ion-button>
+  </div>
 </div>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      App desarrollada por F. Muñoz
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

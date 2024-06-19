@@ -1,54 +1,69 @@
 <ion-content class="ion-padding">
+  <header class="perfil-usuario">
+    <br>
+    <h4>Usuario: {{nombre}}</h4>
+    <br>
+  </header>
+
   <div class="encabezado">
-    <br>
-    <br>
-    <h5>Hola Felipe</h5>
-    <br>
-    <br>
-    <p>¿Que Divisa buscas?</p>
+    <p>A continuación, digite la cantidad de dinero que tiene y seleccione su Divisa:</p>
   </div>
 
-  <div class="container">
-    <div class="form-group">
-      <label for="divisa"></label>
-      <select id="divisa">
-        <option>Dólar</option>
-        <option>Euro</option>
-        <option>Yen</option>
-        <option>Peso chileno</option>
-        <option>Soles</option>
-        <option>Yuan</option>
-      </select>
+  <div class="buttons">
+    <div class="container">
+      <div class="form-group">
+        <label for="cantidad"></label>
+        <input type="number" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()">
+        <label for="divisa1"></label>
+        <select id="divisa1" [(ngModel)]="divisa1">
+          <option value="" disabled>Seleccione aquí</option>
+          <option>Dólar</option>
+          <option>Euro</option>
+          <option>Yen</option>
+          <option>Peso chileno</option>
+          <option>Soles</option>
+          <option>Yuan</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="encabezado">
+    <p>Seleccione la divisa por la que quiere cambiar:</p>
+  </div>
+
+  <div class="buttons">
+    <div class="container">
+      <div class="form-group">
+        <label for="divisa2"></label>
+        <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
+          <option value="" disabled>Seleccione aquí</option>
+          <option>Dólar</option>
+          <option>Euro</option>
+          <option>Yen</option>
+          <option>Peso chileno</option>
+          <option>Soles</option>
+          <option>Yuan</option>
+        </select>
+      </div>
     </div>
   </div>
 
-  <ion-content class="ion-padding">
-    <div class="encabezado">
-      <p>Indica tu divisa y la cantidad que tienes:</p>
-    </div>
+  <div class="resultado">
+    <p>Total: {{total}}</p>
+  </div>
+  <br>
 
-    <div class="buttons">
-      <button type="button">Cantidad</button>
-      <button type="button">Divisa</button>
-    </div>
-
-    <div class="encabezado">
-      <br>
-      <br>
-      <br>
-      <p>Indica la divisa que a la que quieres cambiar</p>
-    </div>
-
-    <div class="buttons">
-      <button type="button">Cantidad</button>
-      <button type="button">Divisa</button>
-      <br>
-      <br>
-    </div>
-
-  <div>
-    <br>
-    <br>
+  <div class="button">  
     <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
+  </div>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="resetForm()">Limpiar campos</ion-button>
+  </div>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="irAlHistorial()">Ir al historial</ion-button>
   </div>
 </ion-content>

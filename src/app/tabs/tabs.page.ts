@@ -57,9 +57,9 @@ export class TabsPage implements OnInit {
 
   getCurrencyDataFromImage(image: string) {
     return {
-      name: 'Example Currency',
-      countries: 'Example Country',
-      history: 'Example history of the currency'
+      name: 'Dólar',
+      countries: 'Estados Unidos',
+      history: 'El dólar estadounidense es la moneda oficial de los Estados Unidos y sus territorios.'
     };
   }
 }

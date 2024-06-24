@@ -7,6 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./currency-info-modal.component.scss'],
 })
 export class CurrencyInfoModalComponent {
+  
   @Input() currencyData: any;
 
   constructor(private modalController: ModalController) {}

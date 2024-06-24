@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar> 
+    <ion-title>Información de la Divisa</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>{{ currencyData.name }}</p>
+  <p>{{ currencyData.countries }}</p>
+  <p>{{ currencyData.history }}</p>
+</ion-content>

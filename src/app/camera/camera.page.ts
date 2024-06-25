@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions, CameraResultType, CameraSource } from '@capacitor/camera';
-import { ModalController } from '@ionic/angular';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { ModalController, NavController } from '@ionic/angular';
 import { CurrencyInfoModalComponent } from '../currency-info-modal/currency-info-modal.component';
 import * as Tesseract from 'tesseract.js';
 
@@ -9,25 +9,38 @@ import * as Tesseract from 'tesseract.js';
   templateUrl: './camera.page.html',
   styleUrls: ['./camera.page.scss'],
 })
-export class CameraPage implements OnInit {
+export class CameraPage {
+  imageUrl: string = '';
 
-  constructor(private modalController: ModalController) { 
+  constructor(private modalController: ModalController, private navCtrl: NavController) { 
   }
 
-  ngOnInit() {
-  }
-
-  async openCamera() {
+  async takePicture() {
     const image = await Camera.getPhoto({      
-      quality:100,
+      quality:90,
+      allowEditing: false,
       resultType: CameraResultType.DataUrl,
-      source: CameraSource.Prompt,
-      allowEditing: false
+      source: CameraSource.Camera
     });
 
-    const base64Image = image.dataUrl;
-    if (base64Image) {
-      this.processImage(base64Image);
+    if (image.dataUrl) {
+      this.imageUrl = image.dataUrl;
+      this.processImage(this.imageUrl);
+    }
+  }
+
+
+  async selectPicture() {
+    const image = await Camera.getPhoto({      
+      quality:90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Photos
+    });
+
+    if (image.dataUrl) {
+      this.imageUrl = image.dataUrl;
+      this.processImage(this.imageUrl)
     }
   }
 
@@ -46,9 +59,9 @@ export class CameraPage implements OnInit {
   }
 
   getCurrencyDataFromText(text: string) {
-    let name = 'Ejemplo de Moneda';
-    let countries = 'Ejemplo de País';
-    let history = 'Historia de ejemplo de la moneda.';
+    let name = 'Dolar';
+    let countries = 'Estados Unidos';
+    let history = 'La moneda más utilizada en el mundo.';
     
     if (text.includes('USD')) {
       name = 'Dólar Estadounidense';
@@ -72,8 +85,14 @@ export class CameraPage implements OnInit {
       component: CurrencyInfoModalComponent,
       componentProps: {
         'currencyData': currencyData
-      }
+      },
+      backdropDismiss: false
     });
+
+    modal.onDidDismiss().then(() => {
+      this.navCtrl.navigateRoot('/tabs/tab1');
+    });
+
     return await modal.present();
   }
 }

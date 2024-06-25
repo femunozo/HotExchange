@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CameraPageRoutingModule } from './camera-routing.module';
 
 import { CameraPage } from './camera.page';
+import { Routes, RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [

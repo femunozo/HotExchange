@@ -7,6 +7,9 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  { path: 'maps', 
+    loadChildren: () => import('./maps/maps.module').then(m => m.MapsPageModule) 
+  },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -42,10 +45,6 @@ const routes: Routes = [
   {
     path: 'camera',
     loadChildren: () => import('./camera/camera.module').then( m => m.CameraPageModule)
-  },
-  {
-    path: 'maps',
-    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
   },
 ];
 

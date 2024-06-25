@@ -1,6 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cámara</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-item (click)="openCamera()">
-    <ion-icon name="camera"></ion-icon>
-    <ion-label>Cámara</ion-label>
-  </ion-item>
+  <ion-button (click)="selectPicture()">Buscar foto</ion-button>
+  <img *ngIf="imageUrl" [src]="imageUrl" /> 
 </ion-content>

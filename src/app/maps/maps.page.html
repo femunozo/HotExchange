@@ -1,6 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-item (click)="getGeolocation()">
-    <ion-icon name="locate"></ion-icon>
+  <ion-item button (click)="getGeolocation()">
+    <ion-icon slot="start" name="locate"></ion-icon>
     <ion-label>Geolocalización</ion-label>
   </ion-item>
+  <ion-card *ngIf="nearestBank !== 'TU BANCO MÁS CERCANO AQUÍ'">
+    <ion-card-header>
+      <ion-card-title>{{ nearestBank }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Distancia: {{ distanceToNearestBank.toFixed(2) }} km</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

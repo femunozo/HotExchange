@@ -5,41 +5,37 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedDataService {
-  private cantidad01Subject = new BehaviorSubject<number | null>(0);
-  private totalSubject = new BehaviorSubject<number>(0);
-  private nombreSubject = new BehaviorSubject<string>(localStorage.getItem('nombre') || '');
-
-  constructor() { }
+  private nombre = new BehaviorSubject<string>('');
+  private cantidad01 = new BehaviorSubject<number | null>(0);
+  private total = new BehaviorSubject<number>(0);
 
   setCantidad01(value: number | null) {
-    this.cantidad01Subject.next(value);
+    this.cantidad01.next(value);
   }
 
   getCantidad01() {
-    return this.cantidad01Subject.asObservable();
+    return this.cantidad01.asObservable();
   }
 
   setTotal(value: number) {
-    this.totalSubject.next(value);
+    this.total.next(value);
   }
 
   getTotal() {
-    return this.totalSubject.asObservable();
+    return this.total.asObservable();
   }
 
   setNombre(value: string) {
-    this.nombreSubject.next(value);
-    localStorage.setItem('nombre', value);
+    this.nombre.next(value);
   }
 
   getNombre() {
-    return this.nombreSubject.asObservable();
+    return this.nombre.asObservable();
   }
 
   reset() {
-    this.cantidad01Subject.next(0);
-    this.totalSubject.next(0);
-    this.nombreSubject.next('');
-    localStorage.removeItem('nombre');
+    this.nombre.next('');
+    this.cantidad01.next(0);
+    this.total.next(0);
   }
 }

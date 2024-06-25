@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { SharedDataService } from '../shared-data.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -113,6 +114,8 @@ export class Tab1Page implements OnInit {
   }
 
   resetForm() {
+    this.sharedData.reset();
+    this.nombre = '';
     this.cantidad01 = 0;
     this.divisa1 = '';
     this.divisa2 = '';

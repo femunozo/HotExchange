@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { SharedDataService } from '../shared-data.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-tab1',
@@ -10,25 +12,60 @@ import { SharedDataService } from '../shared-data.service';
 })
 export class Tab1Page implements OnInit {
 
-  nombre:     string = "";
-  cantidad01: number | null = 0;
-  divisa1:    string = '';
-  divisa2:    string = '';
-  total:      number = 0;
+  nombre:           string = "";
+  cantidad01:       number | null = 0;
+  divisa1:          string = '';
+  divisa2:          string = '';
+  total:            number = 0;
+  divisas:          { code: string, name: string }[] = [];
+  conversionRates:  { [key: string]: number } = {};
 
-  tasasConversion: { [key: string]: { [key: string]: number } } = {
-    'Dólar': { 'Euro': 0.85, 'Yen': 110, 'Peso chileno': 750, 'Soles': 3.7, 'Yuan': 6.5 },
-    'Euro': { 'Dólar': 1.18, 'Yen': 129, 'Peso chileno': 880, 'Soles': 4.35, 'Yuan': 7.7 },
-    'Yen': { 'Dólar': 0.0091, 'Euro': 0.0078, 'Peso chileno': 6.8, 'Soles': 0.034, 'Yuan': 0.059 },
-    'Peso chileno': { 'Dólar': 0.0013, 'Euro': 0.0011, 'Yen': 0.15, 'Soles': 0.0051, 'Yuan': 0.0086 },
-    'Soles': { 'Dólar': 0.27, 'Euro': 0.23, 'Yen': 29.4, 'Peso chileno': 195.2, 'Yuan': 1.82 },
-    'Yuan': { 'Dólar': 0.15, 'Euro': 0.13, 'Yen': 17, 'Peso chileno': 116, 'Soles': 0.55 }
-  };
+  financialData:    any[] = [];
 
-  constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
+  constructor(private router: Router, 
+              private alertController: AlertController, 
+              private sharedData: SharedDataService,
+              private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.sharedData.getNombre().subscribe(nombre => this.nombre = nombre);
+    this.fetchFinancialData();
+  }
+
+  fetchFinancialData() {
+    const apiUrl = 'https://mindicador.cl/api';
+    
+    this.http.get(apiUrl).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.financialData = data;
+        const allowedCurrencies = ['dolar', 'euro', 'bitcoin'];
+
+        this.divisas = allowedCurrencies
+        .filter(currency => data[currency] !== undefined)
+        .map(currency => ({
+          code: currency,
+          name: data[currency].nombre
+        }));
+
+        this.divisas.push({ code: 'peso_chileno', name: 'Peso Chileno'});
+
+        allowedCurrencies.forEach(currency => {
+          if (data[currency] !== undefined) {
+            this.conversionRates[data[currency].nombre] = data[currency].valor;
+          }
+        });
+
+        this.conversionRates['Peso Chileno'] = 1;
+
+        console.log(this.divisas);
+        console.log(this.conversionRates);
+      },
+      (error) => {
+        console.error('Error', error);
+      }
+    );
   }
 
   async mostrarAlerta() {
@@ -51,15 +88,23 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['/historial']);
   }
 
-convertir() {
-  const tasa = this.tasasConversion[this.divisa1][this.divisa2];
-  if (tasa && this.cantidad01 != null) {
-    this.total = parseFloat((this.cantidad01 * tasa).toFixed(1));
-    this.sharedData.setTotal(this.total);
-  } else {
-    this.total = 0;
+  convertir() {
+    const rate1 = this.divisa1 === 'Peso Chileno' ? 1 : this.conversionRates[this.divisa1];
+    const rate2 = this.divisa2 === 'Peso Chileno' ? 1 : this.conversionRates[this.divisa2];
+
+    if (rate1 && rate2 && this.cantidad01 != null) {
+      if (this.divisa1 === 'Peso Chileno') {
+        this.total = parseFloat((this.cantidad01 / rate2).toFixed(2));
+      } else if (this.divisa2 === 'Peso Chileno') {
+        this.total = parseFloat((this.cantidad01 * rate1).toFixed(2));
+      } else {
+        this.total = parseFloat(((this.cantidad01 / rate1) * rate2).toFixed(2));
+      }
+      this.sharedData.setTotal(this.total);
+    } else {
+      this.total = 0;
+    }
   }
-}
 
 
   clearZero() {
@@ -69,6 +114,8 @@ convertir() {
   }
 
   resetForm() {
+    this.sharedData.reset();
+    this.nombre = '';
     this.cantidad01 = 0;
     this.divisa1 = '';
     this.divisa2 = '';

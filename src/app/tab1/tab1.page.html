@@ -1,8 +1,6 @@
 <ion-content class="ion-padding">
   <header class="perfil-usuario">
-    <br>
     <h4>Usuario: {{nombre}}</h4>
-    <br>
   </header>
 
   <div class="encabezado">
@@ -17,12 +15,7 @@
         <label for="divisa1"></label>
         <select id="divisa1" [(ngModel)]="divisa1">
           <option value="" disabled>Seleccione aquí</option>
-          <option>Dólar</option>
-          <option>Euro</option>
-          <option>Yen</option>
-          <option>Peso chileno</option>
-          <option>Soles</option>
-          <option>Yuan</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.name"> {{ divisa.name }}</option>
         </select>
       </div>
     </div>
@@ -39,12 +32,7 @@
         <label for="divisa2"></label>
         <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
           <option value="" disabled>Seleccione aquí</option>
-          <option>Dólar</option>
-          <option>Euro</option>
-          <option>Yen</option>
-          <option>Peso chileno</option>
-          <option>Soles</option>
-          <option>Yuan</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.name"> {{ divisa.name }}</option>
         </select>
       </div>
     </div>

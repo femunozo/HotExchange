@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cámara</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="selectPicture()">Buscar foto</ion-button>
+  <img *ngIf="imageUrl" [src]="imageUrl" /> 
+</ion-content>

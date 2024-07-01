@@ -1,10 +1,10 @@
 {
   "name": "HotExchange",
-  "integrations": {
-    "capacitor": {}
-  },
   "type": "angular",
-  "server": {
-    "browser": "google chrome"
-  }
+  "proxies": [
+    {
+      "path": "/api",
+        "proxyUrl": "https://si3.bcentral.cl/Indicadoressiete/secure/ListaSerie.aspx"
+    }
+  ]
 }

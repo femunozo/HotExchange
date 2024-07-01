@@ -1,4 +1,4 @@
-<ion-menu contentId="main-content">
+<ion-menu side="start" menuId="firstMenu" contentId="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menú</ion-title>
@@ -16,14 +16,32 @@
   </ion-content>
 </ion-menu>
 
+<ion-menu side="end" menuId="secondMenu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Divisas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="scrollable-content"> 
+    <ion-list>
+      <ion-item *ngFor="let currency of currenciesData | keyvalue">
+        <ion-label>{{ currency.key }}: ${{ currency.value }} </ion-label>
+      </ion-item>
+    </ion-list>    
+  </ion-content>
+</ion-menu>
+
 <ion-content [fullscreen]="false">
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button menu="firstMenu"></ion-menu-button>
         </ion-buttons>
         <ion-title><h4>HotExchange</h4></ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button menu="secondMenu"></ion-menu-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>  
   

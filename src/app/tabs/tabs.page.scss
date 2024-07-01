@@ -3,13 +3,8 @@ ion-content {
         ion-header {
             ion-toolbar {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
-
-                ion-buttons {
-                    position: absolute;
-                    left: 0;
-                }
 
                 ion-title {
                     text-align: center;
@@ -23,5 +18,12 @@ ion-content {
                 }
             }
         }
+    }
+}
+
+ion-menu {
+    ion-content.scrollable-content {
+        height: 100%;
+        overflow-y: auto;
     }
 }

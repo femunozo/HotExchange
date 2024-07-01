@@ -50,6 +50,11 @@ label {
 select {
     padding: 8px;
     font-size: 16px;
+    text-align-last: center;
+}
+
+.option-center {
+    text-align: center;
 }
 
 .button {

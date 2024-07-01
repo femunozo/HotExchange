@@ -13,6 +13,8 @@ export class Tab2Page implements OnInit {
   nombre:     string = "";
   cantidad01: number | null = 0;
   total:      number = 0;
+  divisa1:    string = '';
+  divisa2:    string = '';
 
   constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
 
@@ -23,6 +25,12 @@ export class Tab2Page implements OnInit {
     });
     this.sharedData.getTotal().subscribe(value => {
       this.total = value;
+    });
+    this.sharedData.getDivisa1().subscribe(value => {
+      this.divisa1 = value;
+    });
+    this.sharedData.getDivisa2().subscribe(value => {
+      this.divisa2 = value;
     });
   }
 

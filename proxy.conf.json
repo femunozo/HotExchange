@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://si3.bcentral.cl/Indicadoressiete/secure",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

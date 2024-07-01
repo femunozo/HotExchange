@@ -23,7 +23,7 @@
       "dom"
     ],
     "useDefineForClassFields": false,
-    "types": ["nodes"]
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -10,11 +10,11 @@ import { SharedDataService } from '../shared-data.service';
 })
 export class Tab2Page implements OnInit {
 
-  nombre:     string = "";
+  nombre: string = "";
   cantidad01: number | null = 0;
-  total:      number = 0;
-  divisa1:    string = '';
-  divisa2:    string = '';
+  total: number = 0;
+  divisa1: string = '';
+  divisa2: string = '';
 
   constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
 
@@ -34,21 +34,15 @@ export class Tab2Page implements OnInit {
     });
   }
 
-  async mostrarAlerta() {
-    const alert = await this.alertController.create({
-      header: 'Confirmación',
-      message: 'La compra/venta se realizó exitosamente.',
-      buttons: ['OK']
-    });
-
-    await alert.present();
+  redireccionar() {
+    window.location.href = 'https://www.bancoestado.cl/bancoestado/simulaciones/comercio/simule_1.asp';
   }
 
   navegarATabs() {
-    this.router.navigate(['/tabs'])
+    this.router.navigate(['/tabs']);
   }
 
   navegarATab2() {
-    this.router.navigate(['/tabs/tab2'])
+    this.router.navigate(['/tabs/tab2']);
   }
 }

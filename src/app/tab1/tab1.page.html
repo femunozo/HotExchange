@@ -1,0 +1,56 @@
+<ion-content class="ion-padding">
+  <br><br><br><br>
+  <div class="encabezado">
+    <p>A continuación, digite la cantidad de dinero que tiene y seleccione su Divisa:</p>
+  </div>
+
+  <div class="buttons">
+    <div class="container">
+      <div class="form-group">
+        <label for="cantidad"></label>
+        <input type="text" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()" (input)="formatCurrency($event)" (ngModelChange)="convertir()">
+        <label for="divisa1"></label>
+        <select id="divisa1" [(ngModel)]="divisa1" (ngModelChange)="convertir()">
+          <option class="option-center" value="" disabled>Seleccione aquí</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.code">{{divisa.name}} ({{divisa.code}})</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="encabezado">
+    <p>Seleccione la divisa por la que quiere cambiar:</p>
+  </div>
+
+  <div class="buttons">
+    <div class="container">
+      <div class="form-group">
+        <label for="divisa2"></label>
+        <select id="divisa2" [(ngModel)]="divisa2" (ngModelChange)="convertir()">
+          <option class="option-center" value="" disabled>Seleccione aquí</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.code">{{divisa.name}} ({{divisa.code}})</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="resultado">
+    <p>Total: ${{total}}</p>
+  </div>
+  <br>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="navegarATab2()">Ir a Comprar/Vender</ion-button>
+  </div>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="resetForm()">Limpiar campos</ion-button>
+  </div>
+
+  <div class="button">  
+    <ion-button expand="block" fill="solid" (click)="irAlHistorial()">Ir al historial</ion-button>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,10 @@
+{
+  "name": "HotExchange",
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api",
+        "proxyUrl": "https://si3.bcentral.cl/Indicadoressiete/secure/ListaSerie.aspx"
+    }
+  ]
+}

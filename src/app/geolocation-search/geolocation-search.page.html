@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="centered-title">Casa de cambio cercana</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-wrapper">
+    <div *ngIf="exchangeOfficeName && distance !== null">
+      <h2>Casa de cambio más cercana:</h2>
+      <p>Nombre de la casa de cambio: {{ exchangeOfficeName }}</p>
+      <p>Distancia: {{ distance | number:'1.2-2' }} km</p>
+    </div>
+    <div *ngIf="exchangeOfficeName && distance === null">
+      <h2>{{ exchangeOfficeName }}</h2>
+    </div>
+  </div>
+  <div class="button-container">
+    <ion-button expand="block" (click)="startSearch()">Buscar</ion-button>
+    <ion-button expand="block" (click)="goToHome()">Volver a inicio</ion-button>
+  </div>
+</ion-content>

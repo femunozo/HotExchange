@@ -1,0 +1,15 @@
+ion-header {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+.login-header {
+    text-align: center;
+}

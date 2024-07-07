@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Banco o casa de cambio más cercano</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="nearestBank !== 'TU BANCO MÁS CERCANO AQUÍ'">
+  <ion-card-header>
+    <ion-card-title> {{ nearestBank }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>Distancia: {{ distanceToNearestBank.toFixed(2) }} km</p>
+  </ion-card-content>
+  </ion-card>
+  <ion-button expand="block" (click)="goToHome()">Volver a inicio</ion-button>
+</ion-content>
+

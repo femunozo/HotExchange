@@ -1,0 +1,23 @@
+ion-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  ion-content .content-wrapper {
+    flex: 1;
+  }
+  
+  ion-content .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+  }
+  
+
+.scrollable-container {
+    height: 100%;
+    overflow-y: auto;
+}

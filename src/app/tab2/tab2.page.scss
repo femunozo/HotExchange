@@ -1,0 +1,30 @@
+ion-header {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+.perfil-usuario {
+    text-align: center;
+    width: 100%;
+}
+
+.textos {
+    text-align: center;
+    margin: 0;
+}
+
+.textos p {
+    text-align: center;
+    margin: 0;
+}
+
+.button {
+    text-align: center;
+}

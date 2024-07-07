@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <div class="textos">
+    <header class="perfil-usuario">
+      <br><br><br><br>
+      <h4>Usuario: {{nombre}}</h4>
+      <br>
+    </header>
+  
+    <br><br><br><br><br>
+    <p>¿Quiere cambiar sus ${{cantidad01}} <span *ngIf="divisa1"> ({{divisa1}})</span></p>
+    <br>
+    <p>por la cantidad de ${{total}} <span *ngIf="divisa2"> ({{divisa2}})</span>?</p>
+    <br><br><br><br>
+    <br><br><br>
+  </div>
+
+
+  <div class="button">
+    <ion-button expand="block" fill="solid" (click)="mostrarAlerta()">Comprar/vender</ion-button>
+  </div>
+  
+  <div class="button">
+    <ion-button expand="block" fill="solid" (click)="navegarATabs()">Volver a simular Divisas</ion-button>
+  </div>
+
+</ion-content>

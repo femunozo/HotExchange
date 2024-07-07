@@ -1,0 +1,72 @@
+
+.perfil-container {
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.perfil-header, .perfil-footer {
+    text-align: center;
+}
+
+.perfil-usuario {
+    text-align: center;
+    width: 100%;
+}
+
+.informacion-adicional form {
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+}
+
+input, select {
+    padding: 8px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    text-align: left;
+}
+
+ion-header {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+ion-footer {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0);
+
+        ion-title {
+            text-align: center;
+            font-size: 15px;
+            line-height: 1;
+        }
+    }
+}

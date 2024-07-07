@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hot Exchange
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-header">
+    <h1>Crea tu cuenta aquí</h1>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <form #registroForm="ngForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Ingrese su nombre de usuario:</ion-label>
+        <ion-input
+          required
+          type="text"
+          [(ngModel)]="usuario"
+          name="usuario"
+          minlength="3"
+          maxlength="8"
+          pattern="[a-zA-Z0-9]*"
+          #usuarioInput="ngModel">
+        </ion-input>
+        <div *ngIf="usuarioInput.invalid && (usuarioInput.dirty || usuarioInput.touched)" class="error-messages">
+          <p *ngIf="usuarioInput.errors?.['minlength']">El nombre de usuario debe tener al menos 3 caracteres.</p>
+          <p *ngIf="usuarioInput.errors?.['maxlength']">El nombre de usuario no puede tener más de 8 caracteres.</p>
+          <p *ngIf="usuarioInput.errors?.['pattern']">El nombre de usuario solo puede contener caracteres alfanuméricos.</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Ingrese su Password:</ion-label>
+        <ion-input
+          required
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          minlength="4"
+          maxlength="4"
+          pattern="[a-zA-Z0-9]*"
+          #passwordInput="ngModel">
+        </ion-input>
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-messages">
+          <p *ngIf="passwordInput.errors?.['minlength']">La contraseña debe ser de 4 caracteres.</p>
+          <p *ngIf="passwordInput.errors?.['maxlength']">La contraseña debe ser de 4 caracteres.</p>
+          <p *ngIf="passwordInput.errors?.['pattern']">La contraseña solo puede contener caracteres alfanuméricos.</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Ingrese su Password nuevamente:</ion-label>
+        <ion-input
+          required
+          type="password"
+          [(ngModel)]="repitepass"
+          name="repitepass"
+          minlength="4"
+          maxlength="4"
+          pattern="[a-zA-Z0-9]*"
+          #repitepassInput="ngModel"
+          (ngModelChange)="validatePasswordMatch()">
+        </ion-input>
+        <div *ngIf="repitepassInput.invalid && (repitepassInput.dirty || repitepassInput.touched)" class="error-messages">
+          <p *ngIf="repitepassInput.errors?.['minlength']">La contraseña debe ser de 4 caracteres.</p>
+          <p *ngIf="repitepassInput.errors?.['maxlength']">La contraseña debe ser de 4 caracteres.</p>
+          <p *ngIf="repitepassInput.errors?.['pattern']">La contraseña solo puede contener caracteres alfanuméricos.</p>
+          <p *ngIf="repitepassInput.errors?.['passwordMismatch']">Las contraseñas no coinciden.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div>
+      <ion-button 
+        expand="block" 
+        fill="solid" 
+        (click)="crearCuenta(registroForm)" 
+        [disabled]="!registroForm.valid || repitepassInput.errors?.['passwordMismatch']">
+        Crear cuenta
+      </ion-button>
+    </div>
+
+    <div>
+      <ion-button expand="block" fill="solid" (click)="navegarALogin()">Volver a la página anterior</ion-button>
+    </div>
+  </form>
+</ion-content>

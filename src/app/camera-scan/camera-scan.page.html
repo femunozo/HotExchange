@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Escanear Imagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="scanning"></ion-spinner>
+  <img *ngIf="imageUrl" [src]="imageUrl" />
+</ion-content>

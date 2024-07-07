@@ -1,0 +1,43 @@
+.encabezado {
+    text-align: center;
+}
+
+.footer-button {
+    position: absolute;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+  
+    ion-button {
+      width: 100%;
+    }
+  }
+
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .header-title {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex: 1;
+    }
+  
+    h1 {
+      margin: 0;
+    }
+  
+    .small-reg {
+        font-size: 0.66em;
+        vertical-align: super;
+    }
+  
+    ion-buttons {
+      ion-icon {
+        font-size: 24px;
+      }
+    }
+  }

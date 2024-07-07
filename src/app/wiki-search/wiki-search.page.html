@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="centered-title">Buscador de Divisas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-wrapper">
+    <div>
+      <ion-label position="floating">A continuación, ingrese la sigla de la divisa:</ion-label>
+      <ion-input [(ngModel)]="currencyCode" placeholder=" Escriba aquí"></ion-input>
+    </div>
+    <div class="button-container">
+      <ion-button expand="block" (click)="searchCurrency()">Buscar</ion-button>
+      <ion-button expand="block" (click)="volverInicio()">Volver a Inicio</ion-button>
+    </div>
+
+    <div class="card-container">
+      <ion-card *ngIf="currencyInfo">
+        <ion-card-header>
+          <ion-card-title>{{ currencyInfo.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ currencyInfo.extract }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

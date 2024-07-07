@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { NominatimService } from '../services/nominatim.service';
 
@@ -7,12 +7,16 @@ import { NominatimService } from '../services/nominatim.service';
   templateUrl: './geolocation-search.page.html',
   styleUrls: ['./geolocation-search.page.scss'],
 })
-export class GeolocationSearchPage {
+export class GeolocationSearchPage implements OnInit {
   location: { lat: number; lng: number } | null = null;
   exchangeOfficeName: string | null = null;
   distance: number | null = null;
 
   constructor(private navCtrl: NavController, private nominatimService: NominatimService) {}
+
+  ngOnInit() {
+    this.startSearch();
+  }
 
   async startSearch() {
     try {

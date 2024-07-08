@@ -1,91 +1,5 @@
 ion-header {
     ion-toolbar {
-<<<<<<< HEAD
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  
-      ion-title {
-        text-align: center;
-      }
-    }
-  }
-  
-  .perfil-usuario {
-    text-align: center;
-    width: 100%;
-  }
-  
-  .textos {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .textos p {
-    text-align: center;
-    margin: 10px 0;
-  }
-  
-  .button {
-    text-align: center;
-  }
-  
-  .profile-pic-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .profile-pic {
-    position: relative;
-    width: 33.33vw;
-    height: 33.33vw;
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .person-icon {
-    width: 100%;
-    height: 100%;
-    color: #6c757d;
-  }
-  
-  .profile-pic img {
-    object-fit: cover;
-  }
-  
-  .edit-button {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    padding: 0;
-    z-index: 10;
-  }
-  
-  .camera-icon {
-    font-size: 24px;
-    color: black;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-=======
         display: flex;
         justify-content: center;
         align-items: center;
@@ -114,4 +28,3 @@ ion-header {
 .button {
     text-align: center;
 }
->>>>>>> f520401b931e804657690899b4d34873a81595cb

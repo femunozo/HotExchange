@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Tab 2</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  <div class="profile-pic-container">
-    <div class="profile-pic">
-      <ng-container *ngIf="imageUrl; else defaultIcon">
-        <img [src]="imageUrl" class="person-icon" />
-      </ng-container>
-      <ng-template #defaultIcon>
-        <ion-icon name="person-circle" class="person-icon"></ion-icon>
-      </ng-template>
-      <ion-button fill="clear" class="edit-button" (click)="editProfilePic()">
-        <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
-      </ion-button>
-    </div>
-  </div>
-
-  <div class="textos">
-    <header class="perfil-usuario">
-      <h4>Usuario: {{nombre}}</h4>
-    </header>
-  
-    <p>¿Quiere cambiar sus ${{cantidad01}} <span *ngIf="divisa1"> ({{divisa1}})</span></p>
-    <p>por la cantidad de ${{total}} <span *ngIf="divisa2"> ({{divisa2}})</span>?</p>
-  </div>
-
-  <div class="button">
-    <ion-button expand="block" fill="solid" (click)="redireccionar()">Comprar/vender</ion-button>
-=======
 <ion-content class="ion-padding">
   <div class="textos">
     <header class="perfil-usuario">
@@ -51,15 +17,10 @@
 
   <div class="button">
     <ion-button expand="block" fill="solid" (click)="mostrarAlerta()">Comprar/vender</ion-button>
->>>>>>> f520401b931e804657690899b4d34873a81595cb
   </div>
   
   <div class="button">
     <ion-button expand="block" fill="solid" (click)="navegarATabs()">Volver a simular Divisas</ion-button>
   </div>
-<<<<<<< HEAD
-</ion-content>
-=======
 
 </ion-content>
->>>>>>> f520401b931e804657690899b4d34873a81595cb

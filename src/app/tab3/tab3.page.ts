@@ -25,11 +25,4 @@ export class Tab3Page implements OnInit {
     };
     this.router.navigate(['/login'], navigationExtras)
   }
-<<<<<<< HEAD
 }
-=======
-}
-
-
-
->>>>>>> f520401b931e804657690899b4d34873a81595cb

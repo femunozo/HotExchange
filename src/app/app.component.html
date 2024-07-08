@@ -1,42 +1,10 @@
 <ion-app>
-<<<<<<< HEAD
-  <ion-menu side="start" menuId="firstMenu" contentId="main-content">
-=======
   <ion-menu content-id="main-content">
->>>>>>> f520401b931e804657690899b4d34873a81595cb
     <ion-header>
       <ion-toolbar>
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
-<<<<<<< HEAD
-    <ion-content class="ion-padding">
-      <ion-item button (click)="onMenuItemClick(1)">
-        <ion-icon name="locate-outline"></ion-icon>
-        <ion-label> Buscar casa de cambio</ion-label>
-      </ion-item>
-      <ion-item button (click)="onMenuItemClick(2)">
-        <ion-icon name="search-outline"></ion-icon>
-        <ion-label> Buscador de divisas por sigla</ion-label>
-      </ion-item>
-    </ion-content>
-  </ion-menu>
-
-  <ion-menu side="end" menuId="secondMenu" contentId="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Divisas</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <div class="scrollable-container">
-        <ion-list>
-          <ion-item *ngFor="let currency of convertedCurrencies | keyvalue">
-            <ion-label>$1 {{ currency.key }} = ${{ currency.value | number:'1.2-2' }} CLP</ion-label>
-          </ion-item>
-        </ion-list>
-      </div>
-=======
     <ion-content>
       <ion-list>
         <ion-item *ngFor="let page of appPages" button (click)="onMenuItemClick(page.item_id)">
@@ -44,13 +12,8 @@
           <ion-label>{{ page.title }}</ion-label>
         </ion-item>
       </ion-list>
->>>>>>> f520401b931e804657690899b4d34873a81595cb
     </ion-content>
   </ion-menu>
 
   <ion-router-outlet id="main-content"></ion-router-outlet>
-<<<<<<< HEAD
-</ion-app>
-=======
 </ion-app> 
->>>>>>> f520401b931e804657690899b4d34873a81595cb

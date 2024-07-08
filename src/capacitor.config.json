@@ -1,0 +1,11 @@
+{
+    "appId": "io.ionic.starter",
+    "appName": "HotExchange",
+    "webDir": "www",
+    "plugins": {
+      "Geolocation": {
+        "androidAccuracy": "high"
+      }
+    }
+  }
+  

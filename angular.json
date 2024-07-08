@@ -33,7 +33,7 @@
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
-            "allowedCommonJsDependencies": ["tesseract.js"]
+            "allowedCommonJsDependencies": ["tesseract.js", "localforage"]
           },
           "configurations": {
             "production": {

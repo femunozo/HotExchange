@@ -4,7 +4,10 @@
   "proxies": [
     {
       "path": "/api",
-        "proxyUrl": "https://si3.bcentral.cl/Indicadoressiete/secure/ListaSerie.aspx"
+      "proxyUrl": "https://si3.bcentral.cl/Indicadoressiete/secure/ListaSerie.aspx"
     }
-  ]
+  ],
+  "integrations": {
+    "capacitor": {}
+  }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -7,12 +8,21 @@ import { Subscription } from 'rxjs';
 import { CurrencyService } from '../services/currency.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+=======
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { SharedDataService } from '../shared-data.service';
+import { HttpClient } from '@angular/common/http';
+
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
   styleUrls: ['./tab1.page.scss'],
 })
+<<<<<<< HEAD
 export class Tab1Page implements OnInit, OnDestroy {
 
   nombre: string = '';
@@ -24,16 +34,34 @@ export class Tab1Page implements OnInit, OnDestroy {
   divisas: { code: string, name: string }[] = [];
   conversionRates: { [key: string]: number } = {};
   subscription: Subscription | undefined;
+=======
+export class Tab1Page implements OnInit {
+
+  nombre:           string = "";
+  cantidad01:       number | null = 0;
+  divisa1:          string = '';
+  divisa2:          string = '';
+  total:            number = 0;
+  divisas:          { code: string, name: string }[] = [];
+  conversionRates:  { [key: string]: number } = {};
+
+  financialData:    any[] = [];
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 
   constructor(private router: Router, 
               private alertController: AlertController, 
               private sharedData: SharedDataService,
+<<<<<<< HEAD
               private http: HttpClient,
               private currencyService: CurrencyService
+=======
+              private http: HttpClient
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   ) {}
 
   ngOnInit() {
     this.sharedData.getNombre().subscribe(nombre => this.nombre = nombre);
+<<<<<<< HEAD
     this.fetchAllCurrencies();
     this.initializeCurrencyField();
   }
@@ -302,6 +330,45 @@ export class Tab1Page implements OnInit, OnDestroy {
   irAlHistorial() {
     this.router.navigate(['/historial']);
   }
+=======
+    this.fetchFinancialData();
+  }
+
+  fetchFinancialData() {
+    const apiUrl = 'https://mindicador.cl/api';
+    
+    this.http.get(apiUrl).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.financialData = data;
+        const allowedCurrencies = ['dolar', 'euro', 'bitcoin'];
+
+        this.divisas = allowedCurrencies
+        .filter(currency => data[currency] !== undefined)
+        .map(currency => ({
+          code: currency,
+          name: data[currency].nombre
+        }));
+
+        this.divisas.push({ code: 'peso_chileno', name: 'Peso Chileno'});
+
+        allowedCurrencies.forEach(currency => {
+          if (data[currency] !== undefined) {
+            this.conversionRates[data[currency].nombre] = data[currency].valor;
+          }
+        });
+
+        this.conversionRates['Peso Chileno'] = 1;
+
+        console.log(this.divisas);
+        console.log(this.conversionRates);
+      },
+      (error) => {
+        console.error('Error', error);
+      }
+    );
+  }
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 
   async mostrarAlerta() {
     const alert = await this.alertController.create({
@@ -312,4 +379,52 @@ export class Tab1Page implements OnInit, OnDestroy {
 
     await alert.present();
   }
+<<<<<<< HEAD
 }
+=======
+
+  navegarATab2() {
+    this.sharedData.setCantidad01(this.cantidad01);
+    this.sharedData.setTotal(this.total);
+    this.router.navigate(['/tabs/tab2']);
+  }
+
+  irAlHistorial() {
+    this.router.navigate(['/historial']);
+  }
+
+  convertir() {
+    const rate1 = this.divisa1 === 'Peso Chileno' ? 1 : this.conversionRates[this.divisa1];
+    const rate2 = this.divisa2 === 'Peso Chileno' ? 1 : this.conversionRates[this.divisa2];
+
+    if (rate1 && rate2 && this.cantidad01 != null) {
+      if (this.divisa1 === 'Peso Chileno') {
+        this.total = parseFloat((this.cantidad01 / rate2).toFixed(2));
+      } else if (this.divisa2 === 'Peso Chileno') {
+        this.total = parseFloat((this.cantidad01 * rate1).toFixed(2));
+      } else {
+        this.total = parseFloat(((this.cantidad01 / rate1) * rate2).toFixed(2));
+      }
+      this.sharedData.setTotal(this.total);
+    } else {
+      this.total = 0;
+    }
+  }
+
+
+  clearZero() {
+    if (this.cantidad01 === 0) {
+      this.cantidad01 = null;
+    }
+  }
+
+  resetForm() {
+    this.sharedData.reset();
+    this.nombre = '';
+    this.cantidad01 = 0;
+    this.divisa1 = '';
+    this.divisa2 = '';
+    this.total = 0;
+  }
+}
+>>>>>>> f520401b931e804657690899b4d34873a81595cb

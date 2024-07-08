@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -18,6 +22,7 @@
     "target": "es2022",
     "module": "es2020",
     "lib": [
+<<<<<<< HEAD
       "es2018",
       "dom"
     ],
@@ -25,6 +30,13 @@
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
+=======
+      "es2018", 
+      "dom"
+    ],
+    "useDefineForClassFields": false,
+    "types": ["nodes"]
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

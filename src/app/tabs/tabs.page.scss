@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ion-toolbar {
     display: flex;
     justify-content: space-between;
@@ -26,3 +27,32 @@ ion-toolbar {
     }
   }
   
+=======
+ion-content {
+    .ion-page {
+        ion-header {
+            ion-toolbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                ion-buttons {
+                    position: absolute;
+                    left: 0;
+                }
+
+                ion-title {
+                    text-align: center;
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+
+                    h4 {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+>>>>>>> f520401b931e804657690899b4d34873a81595cb

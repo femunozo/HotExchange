@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -39,3 +40,52 @@
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>
+=======
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-item (click)="openCamera()">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label> Cámara</ion-label>
+    </ion-item>
+    <ion-item (click)="getGeolocation()">
+      <ion-icon name="locate"></ion-icon>
+      <ion-label> Geolocalización</ion-label>
+    </ion-item>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="false">
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title><h4>HotExchange</h4></ion-title>
+      </ion-toolbar>
+    </ion-header>  
+  
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="tab1">
+          <ion-icon name="logo-euro"></ion-icon>
+          <ion-label>Divisas</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tab2">
+          <ion-icon name="repeat"></ion-icon>
+          <ion-label>Comprar/Vender</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tab3">
+          <ion-icon name="log-out"></ion-icon>
+          <ion-label>Perfil/Cerrar sesión</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+</ion-content>
+>>>>>>> f520401b931e804657690899b4d34873a81595cb

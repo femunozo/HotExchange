@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
+<<<<<<< HEAD
+=======
+import { AlertController } from '@ionic/angular';
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 
 @Component({
   selector: 'app-maps',

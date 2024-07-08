@@ -1,5 +1,12 @@
 <ion-content class="ion-padding">
+<<<<<<< HEAD
   <br><br><br><br>
+=======
+  <header class="perfil-usuario">
+    <h4>Usuario: {{nombre}}</h4>
+  </header>
+
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   <div class="encabezado">
     <p>A continuación, digite la cantidad de dinero que tiene y seleccione su Divisa:</p>
   </div>
@@ -8,11 +15,19 @@
     <div class="container">
       <div class="form-group">
         <label for="cantidad"></label>
+<<<<<<< HEAD
         <input type="text" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()" (input)="formatCurrency($event)" (ngModelChange)="convertir()">
         <label for="divisa1"></label>
         <select id="divisa1" [(ngModel)]="divisa1" (ngModelChange)="convertir()">
           <option class="option-center" value="" disabled>Seleccione aquí</option>
           <option *ngFor="let divisa of divisas" [value]="divisa.code">{{divisa.name}} ({{divisa.code}})</option>
+=======
+        <input type="number" id="cantidad" [(ngModel)]="cantidad01" (focus)="clearZero()">
+        <label for="divisa1"></label>
+        <select id="divisa1" [(ngModel)]="divisa1">
+          <option value="" disabled>Seleccione aquí</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.name"> {{ divisa.name }}</option>
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
         </select>
       </div>
     </div>
@@ -27,16 +42,26 @@
     <div class="container">
       <div class="form-group">
         <label for="divisa2"></label>
+<<<<<<< HEAD
         <select id="divisa2" [(ngModel)]="divisa2" (ngModelChange)="convertir()">
           <option class="option-center" value="" disabled>Seleccione aquí</option>
           <option *ngFor="let divisa of divisas" [value]="divisa.code">{{divisa.name}} ({{divisa.code}})</option>
+=======
+        <select id="divisa2" [(ngModel)]="divisa2" (change)="convertir()">
+          <option value="" disabled>Seleccione aquí</option>
+          <option *ngFor="let divisa of divisas" [value]="divisa.name"> {{ divisa.name }}</option>
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
         </select>
       </div>
     </div>
   </div>
 
   <div class="resultado">
+<<<<<<< HEAD
     <p>Total: ${{total}}</p>
+=======
+    <p>Total: {{total}}</p>
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   </div>
   <br>
 
@@ -51,6 +76,9 @@
   <div class="button">  
     <ion-button expand="block" fill="solid" (click)="irAlHistorial()">Ir al historial</ion-button>
   </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 </ion-content>

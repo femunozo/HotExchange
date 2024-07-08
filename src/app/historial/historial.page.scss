@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+=======
+ion-header {
+    ion-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 .encabezado {
     text-align: center;
 }
@@ -12,6 +27,7 @@
     ion-button {
       width: 100%;
     }
+<<<<<<< HEAD
   }
 
   ion-toolbar {
@@ -40,4 +56,6 @@
         font-size: 24px;
       }
     }
+=======
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   }

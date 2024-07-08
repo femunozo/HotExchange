@@ -1,10 +1,15 @@
 <ion-app>
+<<<<<<< HEAD
   <ion-menu side="start" menuId="firstMenu" contentId="main-content">
+=======
+  <ion-menu content-id="main-content">
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
     <ion-header>
       <ion-toolbar>
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
+<<<<<<< HEAD
     <ion-content class="ion-padding">
       <ion-item button (click)="onMenuItemClick(1)">
         <ion-icon name="locate-outline"></ion-icon>
@@ -31,8 +36,21 @@
           </ion-item>
         </ion-list>
       </div>
+=======
+    <ion-content>
+      <ion-list>
+        <ion-item *ngFor="let page of appPages" button (click)="onMenuItemClick(page.item_id)">
+          <ion-icon [name]="page.icon" slot="start"></ion-icon>
+          <ion-label>{{ page.title }}</ion-label>
+        </ion-item>
+      </ion-list>
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
     </ion-content>
   </ion-menu>
 
   <ion-router-outlet id="main-content"></ion-router-outlet>
+<<<<<<< HEAD
 </ion-app>
+=======
+</ion-app> 
+>>>>>>> f520401b931e804657690899b4d34873a81595cb

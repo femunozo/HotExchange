@@ -1,5 +1,6 @@
 {
   "name": "HotExchange",
+<<<<<<< HEAD
   "type": "angular",
   "proxies": [
     {
@@ -9,5 +10,13 @@
   ],
   "integrations": {
     "capacitor": {}
+=======
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "server": {
+    "browser": "google chrome"
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   }
 }

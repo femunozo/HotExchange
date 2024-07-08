@@ -1,5 +1,6 @@
 ion-header {
     ion-toolbar {
+<<<<<<< HEAD
       display: flex;
       justify-content: center;
       align-items: center;
@@ -84,3 +85,33 @@ ion-header {
     justify-content: center;
   }
   
+=======
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+.perfil-usuario {
+    text-align: center;
+    width: 100%;
+}
+
+.textos {
+    text-align: center;
+    margin: 0;
+}
+
+.textos p {
+    text-align: center;
+    margin: 0;
+}
+
+.button {
+    text-align: center;
+}
+>>>>>>> f520401b931e804657690899b4d34873a81595cb

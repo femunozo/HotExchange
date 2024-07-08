@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { NavController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -5,12 +6,17 @@ import { CurrencyService } from './services/currency.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+=======
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+<<<<<<< HEAD
 export class AppComponent implements OnInit {
 
   public appPages = [
@@ -73,5 +79,22 @@ export class AppComponent implements OnInit {
 
   isNumber(value: any): boolean {
     return typeof value === 'number' && !isNaN(value);
+=======
+export class AppComponent {
+
+  public appPages = [
+    { item_id: 1, title: 'Camara', url: '/camera', icon: 'camera-outline' },
+    { item_id: 2, title: 'Geolocalización', url: '/maps', icon: 'locate-outline' }
+  ];
+
+  constructor(private navController: NavController) {}
+
+  onMenuItemClick(id: number) {
+    if (id === 1) {
+      this.navController.navigateRoot('/camera');
+    } else if (id === 2) {
+        this.navController.navigateRoot('/maps');
+    }
+>>>>>>> f520401b931e804657690899b4d34873a81595cb
   }
 }

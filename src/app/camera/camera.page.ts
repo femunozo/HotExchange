@@ -17,7 +17,7 @@ export class CameraPage {
 
   async takePicture() {
     const image = await Camera.getPhoto({      
-      quality:90,
+      quality: 90,
       allowEditing: false,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera
@@ -29,10 +29,9 @@ export class CameraPage {
     }
   }
 
-
   async selectPicture() {
     const image = await Camera.getPhoto({      
-      quality:90,
+      quality: 90,
       allowEditing: false,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Photos
@@ -40,7 +39,7 @@ export class CameraPage {
 
     if (image.dataUrl) {
       this.imageUrl = image.dataUrl;
-      this.processImage(this.imageUrl)
+      this.processImage(this.imageUrl);
     }
   }
 
@@ -94,5 +93,16 @@ export class CameraPage {
     });
 
     return await modal.present();
+  }
+
+  deleteImage() {
+    this.imageUrl = '';
+  }
+
+  presentActionSheet() {
+  }
+
+  goToHome() {
+    this.navCtrl.navigateRoot('/home');
   }
 }

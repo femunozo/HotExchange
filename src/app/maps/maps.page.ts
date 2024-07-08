@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
-<<<<<<< HEAD
-=======
 import { AlertController } from '@ionic/angular';
->>>>>>> f520401b931e804657690899b4d34873a81595cb
 
 @Component({
   selector: 'app-maps',
@@ -20,11 +17,9 @@ export class MapsPage implements OnInit {
     { name: 'Banco Bice', latitude: 41.878113, longitude: -87.629799 },
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async getGeolocation() {
     try {

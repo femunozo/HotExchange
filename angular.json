@@ -33,11 +33,7 @@
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
-<<<<<<< HEAD
-            "allowedCommonJsDependencies": ["tesseract.js", "localforage"]
-=======
             "allowedCommonJsDependencies": ["tesseract.js"]
->>>>>>> f520401b931e804657690899b4d34873a81595cb
           },
           "configurations": {
             "production": {
@@ -77,24 +73,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-<<<<<<< HEAD
-          "options": {
-            "proxyConfig": "proxy.conf.json"
-          },
-=======
->>>>>>> f520401b931e804657690899b4d34873a81595cb
           "configurations": {
             "production": {
               "buildTarget": "app:build:production"
             },
             "development": {
               "buildTarget": "app:build:development"
-<<<<<<< HEAD
-=======
             },
             "ci": {
               "progress": false
->>>>>>> f520401b931e804657690899b4d34873a81595cb
             }
           },
           "defaultConfiguration": "development"

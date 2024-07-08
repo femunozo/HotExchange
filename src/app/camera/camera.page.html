@@ -4,32 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<<<<<<< HEAD
-<ion-content class="ion-padding">
-  <div class="profile-pic-container">
-    <div class="profile-pic">
-      <ng-container *ngIf="imageUrl; else defaultIcon">
-        <img [src]="imageUrl" class="person-icon" />
-      </ng-container>
-      <ng-template #defaultIcon>
-        <ion-icon name="person-circle" class="person-icon"></ion-icon>
-      </ng-template>
-      <ion-button fill="clear" class="delete-button" (click)="deleteImage()">
-        <ion-icon name="trash-outline" class="trash-icon"></ion-icon>
-      </ion-button>
-    </div>
-  </div>
-
-  <div class="button">
-    <ion-button expand="block" fill="solid" (click)="presentActionSheet()">Cargar nueva imagen de perfil</ion-button>
-  </div>
-  
-  <div class="button">
-    <ion-button expand="block" fill="solid" (click)="goToHome()">Volver a inicio</ion-button>
-  </div>
-=======
 <ion-content>
   <ion-button (click)="selectPicture()">Buscar foto</ion-button>
   <img *ngIf="imageUrl" [src]="imageUrl" /> 
->>>>>>> f520401b931e804657690899b4d34873a81595cb
 </ion-content>

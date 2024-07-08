@@ -40,6 +40,10 @@ const routes: Routes = [
     loadChildren: () => import('./historial/historial.module').then(m => m.HistorialPageModule)
   },
   {
+    path: 'camera',
+    loadChildren: () => import('./camera/camera.module').then(m => m.CameraPageModule)
+  },
+  {
     path: 'camera-options',
     loadChildren: () => import('./camera-options/camera-options.module').then(m => m.CameraOptionsPageModule)
   },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { SharedDataService } from '../shared-data.service';
+import { SharedImageService } from '../services/shared-image.service';
 
 @Component({
   selector: 'app-tab2',
@@ -9,14 +10,19 @@ import { SharedDataService } from '../shared-data.service';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-
   nombre: string = "";
   cantidad01: number | null = 0;
   total: number = 0;
   divisa1: string = '';
   divisa2: string = '';
+  imageUrl: string = '';
 
-  constructor(private router: Router, private alertController: AlertController, private sharedData: SharedDataService) {}
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private sharedData: SharedDataService,
+    private sharedImageService: SharedImageService
+  ) {}
 
   ngOnInit() {
     this.sharedData.getNombre().subscribe(nombre => this.nombre = nombre);
@@ -32,6 +38,7 @@ export class Tab2Page implements OnInit {
     this.sharedData.getDivisa2().subscribe(value => {
       this.divisa2 = value;
     });
+    this.sharedImageService.getImageUrl().subscribe(url => this.imageUrl = url);
   }
 
   redireccionar() {
@@ -44,5 +51,9 @@ export class Tab2Page implements OnInit {
 
   navegarATab2() {
     this.router.navigate(['/tabs/tab2']);
+  }
+
+  editProfilePic() {
+    this.router.navigate(['/camera']);
   }
 }

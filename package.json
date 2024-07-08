@@ -31,6 +31,7 @@
     "@capacitor/status-bar": "6.0.0",
     "@google-cloud/vision": "^4.3.0",
     "@ionic/angular": "^8.2.5",
+    "@ionic/storage-angular": "^4.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@vitalets/google-translate-api": "^9.2.0",
